@@ -4,7 +4,8 @@ function showhidePhone(){
 		document.getElementById('phone').innerHTML = "Show my phone number";
 		shown = false;
 	}else {
-		var myphone = "<p>513-400-9741</p>";
+		var myphone = "<a href='mailto:513" + 
+					     "-400-9741'>513" + "-400-9741</a>";
 		document.getElementById('phone').innerHTML = myphone;
 		shown = true;
 	}
