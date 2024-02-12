@@ -89,7 +89,7 @@
 	<div class="container-fluid bg-2 ">
 		<div class="row">
 			<div class="col-sm-8 margin">
-				<div class="rounded p-3" style="background-color: darkslategrey;">
+				<div class="rounded p-3 bg-2">
 					<h2>About Me</h2>
 					<p>
 						I am a Cybersecurity student at the University of Cincinnati. Located in Cincinnati, OH. I specialize in the cybersecurity aspect in the IT which includes networking, software development, system administration, and database management.
@@ -158,7 +158,6 @@
 		       	const apiKey = '76ba63964f964ba9b6ffd96c9f2479cd';
 		        const apiUrl = `https://api.weatherbit.io/v2.0/current?city=Cincinnati&key=${apiKey}&units=I`;
 
-		        // Function to fetch weather data
 		        function fetchWeather() {
 		            fetch(apiUrl)
 		                .then(response => response.json())
@@ -175,11 +174,11 @@
 		                    console.error('Error fetching weather data:', error);
 		                });
 		        }
-
 		        // Fetch weather data initially
 		        fetchWeather();
 
 		        // Graphic Weather that didnt work
+
 		        /* function formatDate(timestamp) {
 		            const date = new Date(timestamp);
 		            const options = { hour: 'numeric', minute: 'numeric' };
@@ -252,13 +251,12 @@
 		        // Check if the client has visited before
 		        const lastVisit = getCookie("lastVisit");
 		        if (lastVisit) {
-		            // If the cookie exists, display a welcome back message
 		            document.getElementById("welcome-message").textContent = "Welcome back! Your last visit was " + lastVisit;
+		        
 		        } else {
-		            // If it's the first visit, display a welcome message and set the cookie
 		            const currentDate = new Date().toLocaleString();
 		            document.getElementById("welcome-message").textContent = "Welcome to my homepage";
-		            setCookie("lastVisit", currentDate, 30); // Store last visit for 30 days
+		            setCookie("lastVisit", currentDate, 30);
 		        }
 			</script>
 	</div>
