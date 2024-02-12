@@ -129,11 +129,12 @@
 					<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 					<script type="text/javascript">
-						$.get("https://v2.jokeapi.dev/joke/Programming?type=single",
+						setInterval($.get("https://v2.jokeapi.dev/joke/Programming?type=single",
 							function(result){
 								//console.log("From jokeApi: "+JSON.stringify(result));
 								$("#response").html("A programming joke of the day: "+ result.joke);
-							});
+							}), 1000);
+
 					</script>
 			
 				<div>
