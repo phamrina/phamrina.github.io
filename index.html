@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   	<style>
 	  body {
 	    font: 20px Montserrat, sans-serif;
@@ -112,7 +114,7 @@
 			</div>
 			<div id="response"></div>
 		</div>
-		<div id="weather-info"></div>
+		<canvas id="weather-chart" width="800" height="400"></canvas>
 
 	</div>
 
@@ -124,9 +126,13 @@
 			
 			
 	
-	<div id="main">
+	<div id="container-fluid bg-1">
 		<p>A simple HTML page</p>
 		Using the <a href="https://www.w3schools.com/html"> W3Schools Template </a>
+			<i>Inlined JavaScript</i>
+			<div id="date" onclick="document.getElementById('date').innerHTML = Date()">Click here to show Date()
+				<div id="digit-clock"></div>
+			</div>
 		<hr>
 			<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -144,37 +150,52 @@
 
 				//weather api
 				const apiKey = '76ba63964f964ba9b6ffd96c9f2479cd';
-		        const apiUrl = `https://api.weatherbit.io/v2.0/current?city=Cincinnati$key=${apiKey}`;
+		        const city = 'Cincinnati'
+		        
+		        fetch(`https://api.weatherbit.io/v2.0/forecast/hourly?city=${city}&key=${apiKey}`)
+		            .then(response => response.json())
+		            .then(data => {
+		                // Extract timestamps and temperatures from the response
+		                const timestamps = data.data.map(entry => new Date(entry.timestamp_local));
+		                const temperatures = data.data.map(entry => entry.temp);
 
-		        function fetchWeather() {
-		            fetch(apiUrl)
-		                .then(response => response.json())
-		                .then(data => {
-		                    // Update the UI with weather information
-		                    const weatherInfo = `
-		                        <p>City: ${data.data[0].city_name}</p>
-		                        <p>Temperature: ${data.data[0].temp}°C</p>
-		                        <p>Description: ${data.data[0].weather.description}</p>
-		                    `;
-		                    document.getElementById('weather-info').innerHTML = weatherInfo;
-		                })
-		                .catch(error => {
-		                    console.error('Error fetching weather data:', error);
+		                // Create a line chart using Chart.js
+		                const ctx = document.getElementById('weather-chart').getContext('2d');
+		                const chart = new Chart(ctx, {
+		                    type: 'line',
+		                    data: {
+		                        labels: timestamps,
+		                        datasets: [{
+		                            label: 'Temperature (°F)',
+		                            data: temperatures,
+		                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+		                            borderColor: 'rgba(54, 162, 235, 1)',
+		                            borderWidth: 1
+		                        }]
+		                    },
+		                    options: {
+		                        scales: {
+		                            x: {
+		                                type: 'time',
+		                                time: {
+		                                    unit: 'hour' // Display timestamps in hours
+		                                }
+		                            },
+		                            y: {
+		                                title: {
+		                                    display: true,
+		                                    text: 'Temperature (°F)'
+		                                }
+		                            }
+		                        }
+		                    }
 		                });
-		        }
-				fetchWeather(); 
+		            })
+		        .catch(error => {
+	                console.error('Error fetching weather data:', error);
+	            });
 
 			</script>
-	
-		<div>
-			
-			<b>Experiments with JavaScript code</b>
-			<i>Inlined JavaScript</i>
-			<div id="date" onclick="document.getElementById('date').innerHTML = Date()">Click here to show Date()
-				<div id="digit-clock"></div>
-			</div>
-		</div>
-		<hr>
 	</div>
 		
 </body>
