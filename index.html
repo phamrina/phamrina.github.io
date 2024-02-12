@@ -159,10 +159,10 @@
 		    <script type="text/javascript">
 
 		       	const apiKey = '76ba63964f964ba9b6ffd96c9f2479cd';
-		        const city = 'Cincinnati';
+		        //const city = 'Cincinnati';
 
 		        function fetchWeather() {
-		            fetch(`https://api.weatherbit.io/v2.0/forecast/hourly?city=${city}&key=${apiKey}`)
+		            fetch(`https://api.weatherbit.io/v2.0/forecast/hourly?city=Cincinnati&key=${apiKey}`)
 		                .then(response => response.json())
 		                .then(data => {
 		                    // Update the UI with weather information
