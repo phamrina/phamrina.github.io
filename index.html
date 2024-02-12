@@ -8,9 +8,8 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/date-fns@2.24.0"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.2.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-
+	<!--<script src="https://cdn.jsdelivr.net/npm/date-fns@2.24.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.2.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script> -->
   	
   	<style>
 	  body {
@@ -158,8 +157,11 @@
 
 		       	const apiKey = '76ba63964f964ba9b6ffd96c9f2479cd';
 		        const city = 'Cincinnati'
-		        function adaptTimestamps(timestamps) {
-		            return timestamps.map(timestamp => new Date(timestamp * 1000));
+
+		        function formatDate(timestamp) {
+		            const date = new Date(timestamp);
+		            const options = { hour: 'numeric', minute: 'numeric' };
+		            return date.toLocaleDateString('en-US', options);
 		        }
 
 		        fetch(`https://api.weatherbit.io/v2.0/forecast/hourly?city=${city}&key=${apiKey}`)
