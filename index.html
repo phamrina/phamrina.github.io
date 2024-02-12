@@ -112,6 +112,31 @@
 			</div>
 			<div id="response"></div>
 		</div>
+		<div id="weather-info"></div>
+
+    <script>
+        const apiKey = '76ba63964f964ba9b6ffd96c9f2479cd';
+        const apiUrl = `https://api.weatherbit.io/v2.0/current?city=London&key=${apiKey}`;
+
+        function fetchWeather() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the UI with weather information
+                    const weatherInfo = `
+                        <p>City: ${data.data[0].city_name}</p>
+                        <p>Temperature: ${data.data[0].temp}°C</p>
+                        <p>Description: ${data.data[0].weather.description}</p>
+                    `;
+                    document.getElementById('weather-info').innerHTML = weatherInfo;
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                });
+        }
+
+        fetchWeather(); 
+    </script>
 	</div>
 
 
