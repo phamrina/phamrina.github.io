@@ -82,25 +82,6 @@
 			<br>
 				<canvas id="analog-clock" width="100" height="100" class="img-fluid img-circle" style="background-color: #999; text-align: left;"></canvas>
 				<script src="https://waph-uc.github.io/clock.js"></script>
-				<script>
-					var canvas = document.getElementById("analog-clock");
-					var ctx = canvas.getContext("2d");
-					var radius = canvas.height / 2;
-					ctx.translate(radius, radius);
-					radius = radius * 0.90;
-					setInterval(drawClock, 1000);
-
-					function drawClock() {
-						drawFace(ctx, radius);
-						drawNumbers(ctx, radius);
-						drawTime(ctx, radius);
-					}
-
-					function displayTime() {
-						document.getElementById('digit-clock').innerHTML = "Current Time: " + new Date();
-					}
-					setInterval(displayTime, 500);
-				</script>
 			</div>
 		</div>
 	</div>
@@ -143,6 +124,26 @@
 			<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 			<script type="text/javascript">
+				//Analog Clock
+				var canvas = document.getElementById("analog-clock");
+				var ctx = canvas.getContext("2d");
+				var radius = canvas.height / 2;
+				ctx.translate(radius, radius);
+				radius = radius * 0.90;
+				setInterval(drawClock, 1000);
+
+				function drawClock() {
+					drawFace(ctx, radius);
+					drawNumbers(ctx, radius);
+					drawTime(ctx, radius);
+				}
+				//Digital Clock
+				function displayTime() {
+					document.getElementById('digit-clock').innerHTML = "Current Time: " + new Date();
+				}
+				setInterval(displayTime, 500);
+
+				//Joke API
 				function getJoke(){
 					$.get("https://v2.jokeapi.dev/joke/Programming?type=single",
 						function(result){
@@ -153,9 +154,6 @@
 
 				getJoke();
 				setInterval(getJoke(), 60000);
-
-				
-				
 		    </script>
 		    <!--weather api-->
 		    <script type="text/javascript">
