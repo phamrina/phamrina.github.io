@@ -162,7 +162,7 @@
 		        const city = 'Cincinnati'
 
 		        function fetchWeather() {
-            fetch('https://api.weatherbit.io/v2.0/forecast/hourly?city=${city}&key=${apiKey}')
+            fetch(`https://api.weatherbit.io/v2.0/forecast/hourly?city=${city}&key=${apiKey}`)
                 .then(response => response.json())
                 .then(data => {
                     // Update the UI with weather information
