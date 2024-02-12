@@ -119,6 +119,8 @@
 			<div id="response"></div>
 		</div>
 		<div id="weather-info"></div>
+		<hr>
+		<div id="welcome-message"></div>
 
 	</div>
 
@@ -232,7 +234,37 @@
 	               console.error('Error fetching weather data:', error);
 	            }); */
 
+		        function setCookie(name, value, days) {
+		            const date = new Date();
+		            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		            const expires = "expires=" + date.toUTCString();
+		            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+		        }
 
+		        // Function to get the value of a cookie by name
+		        function getCookie(name) {
+		            const cookieName = name + "=";
+		            const cookies = document.cookie.split(';');
+		            for (let i = 0; i < cookies.length; i++) {
+		                let cookie = cookies[i].trim();
+		                if (cookie.indexOf(cookieName) === 0) {
+		                    return cookie.substring(cookieName.length, cookie.length);
+		                }
+		            }
+		            return "";
+		        }
+
+		        // Check if the client has visited before
+		        const lastVisit = getCookie("lastVisit");
+		        if (lastVisit) {
+		            // If the cookie exists, display a welcome back message
+		            document.getElementById("welcome-message").textContent = "Welcome back! Your last visit was " + lastVisit;
+		        } else {
+		            // If it's the first visit, display a welcome message and set the cookie
+		            const currentDate = new Date().toLocaleString();
+		            document.getElementById("welcome-message").textContent = "Welcome to my homepage";
+		            setCookie("lastVisit", currentDate, 30); // Store last visit for 30 days
+		        }
 			</script>
 	</div>
 		
