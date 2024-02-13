@@ -206,7 +206,7 @@
 		                        <p>Temperature: ${data.data[0].temp}°F</p>
 		                        <p>Description: ${data.data[0].weather.description}</p>
 		                    `;
-		                    var weather = ${data.data[0].weather.description}
+		                    var weather = data.data[0].weather.description
 		                    if (weather.includes("sun")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" alt="sun">`
 		                    }else if (weather.includes("cloud")) {
