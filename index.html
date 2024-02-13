@@ -115,7 +115,7 @@
 					</p>
 				</div>
 			</div>
-		
+		</div>
 		<div class="row">
 			<div class="col-sm-8">
 				<div class="custom-rounded-box custom-padding bg-4">
@@ -133,7 +133,7 @@
 				</div>
 			</div>
 		</div>
-		</div>
+		
 		<hr>
 		<div id="response"></div>
 		<hr>
@@ -206,6 +206,18 @@
 		                        <p>Temperature: ${data.data[0].temp}°F</p>
 		                        <p>Description: ${data.data[0].weather.description}</p>
 		                    `;
+		                    var weather = ${data.data[0].weather.description}
+		                    if (weather.includes("sun")) {
+		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" alt="sun">`
+		                    }else if (weather.includes("cloud")) {
+		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" alt="cloud">`
+		                    }
+		                    else if (weather.includes("rain")) {
+		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" alt="cloud">`
+		                    }else {
+		                    	weatherInfo = weatherInfo + `<p>It's something out there</p>`
+		                    }
+
 		                    document.getElementById('weather-info').innerHTML = weatherInfo;
 		                })
 		                .catch(error => {
