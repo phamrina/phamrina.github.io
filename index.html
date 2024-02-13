@@ -206,16 +206,16 @@
 		                        <p>Temperature: ${data.data[0].temp}°F</p>
 		                        <p>Description: ${data.data[0].weather.description}</p>
 		                    `;
-		                    var weather = data.data[0].weather.description
+		                    var weather = data.data[0].weather.description;
 		                    if (weather.includes("sun")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" alt="sun">`
+		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" alt="sun">`;
 		                    }else if (weather.includes("cloud")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" alt="cloud">`
+		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" alt="cloud">`;
 		                    }
 		                    else if (weather.includes("rain")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" alt="cloud">`
+		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" alt="cloud">`;
 		                    }else {
-		                    	weatherInfo = weatherInfo + `<p>It's something out there</p>`
+		                    	weatherInfo = weatherInfo + `<p>It's something out there</p>`;
 		                    }
 
 		                    document.getElementById('weather-info').innerHTML = weatherInfo;
