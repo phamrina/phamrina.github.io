@@ -201,7 +201,7 @@
 		                .then(response => response.json())
 		                .then(data => {
 		                    // Update the UI with weather information
-		                    const weatherInfo = `
+		                    var weatherInfo = `
 		                        <p>City: ${data.data[0].city_name}</p>
 		                        <p>Temperature: ${data.data[0].temp}°F</p>
 		                        <p>Description: ${data.data[0].weather.description}</p>
