@@ -207,7 +207,7 @@
 		                        <p>Description: ${data.data[0].weather.description}</p>
 		                    `;
 		                    let weather = data.data[0].weather.description;
-		                    weather.toLowerCase();
+		                    weather = weather.toLowerCase();
 		                    console.log(weather);
 		                    if (weather.includes("sun" ) || weather.includes("clear")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" alt="sun">`;
