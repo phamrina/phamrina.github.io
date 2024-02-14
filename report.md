@@ -19,12 +19,17 @@ I learned that designing a layout is more difficult than I thought. I made a web
 Github hosting is as simple as creating a public repository, selecting which branch to be the directory for the website, and making a index.html file.
 
 ### Link
+
 ![URL to WAPH Page](images/url.png)
+
 ![WAPH Page](images/link.png)
+
 The link is made by  `<a href="*link to the html page*">Click Here</a>`
 
 ### Page Tracker
+
 ![Visitor Tracker](images/visitor.png)
+
 The provider of the flag counter provided a reference link and all of the code. I just put it in its own div.
 
 ### jQuery
@@ -32,11 +37,13 @@ The provider of the flag counter provided a reference link and all of the code. 
 ![Java Code](images/jq2.png)
 I tweaked the code a bit from lab 2 and then made it fit within the layout of the page using media objects and bodys and footers.
 
-### Web APIs
+### Joke and Weather API
 ![Joke and Weather API](images/api.png)
 The jokeAPI was plug and play other than an a setInterval function that updates every minute. The weatherAPI was a bit tricky as I had no other experience working with APIs. I had to do some of my own research on how to implement it but I figured it out. For the graphics, I set up a search through the weather description for key words that call an related img when found.
 
 ### Cookies
+
 ![New Visitor](images/cookie1.png)
+
 ![Returning Visitor](images/cookie2.png)
 I separated the cookies function into three parts: Setting the Date on the Cookie, Getting the cookie of the visitor by name, and checking if that visitor is new or returning.
