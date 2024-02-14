@@ -26,6 +26,10 @@
 	  	margin-right: 15px;
 	  	margin-top: 15px;
 	  }
+	  .half-size-img {
+        width: 50%;
+        height: 50%;
+      }
 	  .bg-1 { 
 	    background-color: #666666; /* Gray */
 	    color: #ffffff;
@@ -210,12 +214,12 @@
 		                    weather = weather.toLowerCase();
 		                    console.log(weather);
 		                    if (weather.includes("sun" ) || weather.includes("clear")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" class="img-responsive" alt="sun" max-width=50%>`;
+		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" class="img-responsive half-size-image" alt="sun">`;
 		                    }else if (weather.includes("cloud")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" class="img-responsive" alt="cloud">`;
+		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" class="img-responsive half-size-image" alt="cloud">`;
 		                    }
 		                    else if (weather.includes("rain")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" class="img-responsive" alt="cloud">`;
+		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" class="img-responsive half-size-image" alt="cloud">`;
 		                    }else {
 		                    	weatherInfo = weatherInfo + `<p>It's something out there</p>`;
 		                    }
