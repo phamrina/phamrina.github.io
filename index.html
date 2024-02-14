@@ -213,31 +213,24 @@
 		                .then(data => {
 		                    // Update the UI with weather information
 		                    var weatherInfo = 
-		                    `<div class="row">
-		                    	<div class="col-sm-4">
-			                    	<div class="custom-rounded-box custom padding bg-4 text-center">
-				                        <p>City: ${data.data[0].city_name}</p>
-				                        <p>Temperature: ${data.data[0].temp}°F</p>
-				                        <p>Description: ${data.data[0].weather.description}</p>
+		                        `<p>City: ${data.data[0].city_name}</p>
+		                        <p>Temperature: ${data.data[0].temp}°F</p>
+		                        <p>Description: ${data.data[0].weather.description}</p>
 			               `;
 		                    let weather = data.data[0].weather.description;
 		                    weather = weather.toLowerCase();
 		                    console.log(weather);
 		                    if (weather.includes("sun" ) || weather.includes("clear")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" class="half-size-img img-circle" alt="sun">
-		                    	<br>
-		                    	</div>
-		                    	</div>`;
+		                    	`;
 		                    }else if (weather.includes("cloud")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" class="half-size-img img-circle" alt="cloud">
-		                    	<br>
-		                    	</div>
-		                    	</div>`;
+		                    	`;
 		                    }
 		                    else if (weather.includes("rain")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" class="half-size-img img-circle" alt="cloud"> <br> </div></div>`;
+		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" class="half-size-img img-circle" alt="cloud"> `;
 		                    }else {
-		                    	weatherInfo = weatherInfo + `<p>It's something out there</p> <br></div></div>`;
+		                    	weatherInfo = weatherInfo + `<p>It's something out there</p> `;
 		                    }
 
 		                    document.getElementById('weather-info').innerHTML = weatherInfo;
