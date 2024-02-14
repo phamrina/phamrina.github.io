@@ -206,12 +206,15 @@
 		                        <p>Temperature: ${data.data[0].temp}°F</p>
 		                        <p>Description: ${data.data[0].weather.description}</p>
 		                    `;
-		                    if (data.data[0].weather.description.includes("sun" ) || data.data[0].weather.description.includes("clear")) {
+		                    let weather = data.data[0].weather.description;
+		                    weather.toLowerCase();
+		                    console.log(weather);
+		                    if (weather.includes("sun" ) || weather.includes("clear")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" alt="sun">`;
-		                    }else if (data.data[0].weather.description.includes("cloud")) {
+		                    }else if (weather.includes("cloud")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" alt="cloud">`;
 		                    }
-		                    else if (data.data[0].weather.description.includes("rain")) {
+		                    else if (weather.includes("rain")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" alt="cloud">`;
 		                    }else {
 		                    	weatherInfo = weatherInfo + `<p>It's something out there</p>`;
