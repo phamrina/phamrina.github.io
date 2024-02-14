@@ -207,7 +207,7 @@
 		                        <p>Description: ${data.data[0].weather.description}</p>
 		                    `;
 		                    var weather = data.data[0].weather.description;
-		                    if (weather.includes("sun")) {
+		                    if (weather.includes("sun" ) || weather.includes("clear")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" alt="sun">`;
 		                    }else if (weather.includes("cloud")) {
 		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" alt="cloud">`;
