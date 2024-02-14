@@ -8,11 +8,6 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  	<!-- Graphic Weather -->
-  	<!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/date-fns@2.24.0"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.2.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script> -->
-  	
   	<style>
 	  body {
 	    font: 20px Montserrat, sans-serif;
@@ -245,56 +240,6 @@
 		        // Fetch weather data initially
 		        fetchWeather();
 
-		        // Graphic Weather that didnt work
-
-		        /* function formatDate(timestamp) {
-		            const date = new Date(timestamp);
-		            const options = { hour: 'numeric', minute: 'numeric' };
-		            return date.toLocaleDateString('en-US', options);
-		        }
-
-		        fetch(`https://api.weatherbit.io/v2.0/forecast/hourly?city=${city}&key=${apiKey}`)
-		            .then(response => response.json())
-		            .then(data => {
-		                // Extract timestamps and temperatures from the response
-		                const timestamps = data.data.map(entry => new Date(entry.timestamp_local));
-		                const temperatures = data.data.map(entry => entry.temp);
-
-		                // Create a line chart using Chart.js
-		                const ctx = document.getElementById('weather-chart').getContext('2d');
-		                const chart = new Chart(ctx, {
-		                    type: 'line',
-		                    data: {
-		                        labels: timestamps,
-		                        datasets: [{
-		                            label: 'Temperature (°F)',
-		                            data: temperatures,
-		                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-		                            borderColor: 'rgba(54, 162, 235, 1)',
-		                            borderWidth: 1
-		                        }]
-		                    },
-		                    options: {
-		                        scales: {
-		                            x: {
-		                                type: 'time',
-		                                time: {
-		                                    unit: 'hour' // Display timestamps in hours
-		                                }
-		                            },
-		                            y: {
-		                                title: {
-		                                    display: true,
-		                                    text: 'Temperature (°F)'
-		                                }
-		                            }
-		                        }
-		                    }
-		                });
-		            })
-		        .catch(error => {
-	               console.error('Error fetching weather data:', error);
-	            }); */
 
 		        function setCookie(name, value, days) {
 		            const date = new Date();
