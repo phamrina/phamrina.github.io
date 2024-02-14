@@ -217,18 +217,20 @@
 		                    weather = weather.toLowerCase();
 		                    console.log(weather);
 		                    if (weather.includes("sun" ) || weather.includes("clear")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" class="half-size-img" alt="sun">
+		                    	weatherInfo = weatherInfo + `<img src="images/sunny.jpeg" class="half-size-img img-circle" alt="sun">
+		                    	<br>
 		                    	</div>
 		                    	</div>`;
 		                    }else if (weather.includes("cloud")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" class="half-size-img" alt="cloud">
+		                    	weatherInfo = weatherInfo + `<img src="images/cloud.jpeg" class="half-size-img img-circle" alt="cloud">
+		                    	<br>
 		                    	</div>
 		                    	</div>`;
 		                    }
 		                    else if (weather.includes("rain")) {
-		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" class="half-size-img" alt="cloud"> </div></div>`;
+		                    	weatherInfo = weatherInfo + `<img src="images/rain.jpeg" class="half-size-img img-circle" alt="cloud"> <br> </div></div>`;
 		                    }else {
-		                    	weatherInfo = weatherInfo + `<p>It's something out there</p> </div></div>`;
+		                    	weatherInfo = weatherInfo + `<p>It's something out there</p> <br></div></div>`;
 		                    }
 
 		                    document.getElementById('weather-info').innerHTML = weatherInfo;
